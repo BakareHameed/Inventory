@@ -1,0 +1,8 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+.debug-class {
+    @apply bg-green-500 text-yellow-500;
+}
