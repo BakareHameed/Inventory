@@ -112,7 +112,7 @@
                   <li><a class="dropdown-item" href="#">Separated link</a></li>
                 </ul>
               </div>
-          </li>
+           </li>
               <x-app-layout>
               </x-app-layout>
               @else
@@ -140,13 +140,7 @@
     </nav>
 
     <nav>
-      <ul>
-        <li><a href="/" class="nav-link">Home</a></li>
-        <li><a href="/storage" class="nav-link">Storage</a></li>
-        <li><a href="/inventory" class="nav-link">Inventory</a></li>
-      </ul>
     </nav>
-    <div id="app"></div>
   </header>
 
 

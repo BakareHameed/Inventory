@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { FaBars, FaHome, FaBox, FaShoppingCart, FaSignOutAlt } from 'react-icons/fa';
+import { Link } from 'react-router-dom'; // Import Link
 
 const Layout = ({ children }) => {
     const [isSidebarOpen, setIsSidebarOpen] = useState(false);
@@ -17,21 +18,29 @@ const Layout = ({ children }) => {
                 } transition-transform duration-300 lg:relative lg:translate-x-0 lg:w-1/5`}
             >
                 <div className="flex items-center justify-center h-16 border-b border-blue-300">
-                    <h1 className="text-xl font-bold">Inventory App</h1>
+                    <h1 className="text-xl font-bold">Inventory</h1>
                 </div>
                 <nav className="mt-4">
                     <ul>
                         <li className="px-4 py-2 hover:bg-blue-600">
-                            <FaHome className="inline-block mr-2" /> Dashboard
+                            <Link to="/home" className="flex items-center">
+                                <FaHome className="inline-block mr-2" /> Dashboard
+                            </Link>
                         </li>
                         <li className="px-4 py-2 hover:bg-blue-600">
-                            <FaBox className="inline-block mr-2" /> Inventory
+                            <Link to="/inventory" className="flex items-center">
+                                <FaBox className="inline-block mr-2" /> Inventory
+                            </Link>
                         </li>
                         <li className="px-4 py-2 hover:bg-blue-600">
-                            <FaShoppingCart className="inline-block mr-2" /> Orders
+                            <Link to="/supplier" className="flex items-center">
+                                <FaShoppingCart className="inline-block mr-2" /> Supplier
+                            </Link>
                         </li>
                         <li className="px-4 py-2 hover:bg-blue-600">
-                            <FaSignOutAlt className="inline-block mr-2" /> Purchase
+                            <Link to="/purchase" className="flex items-center">
+                                <FaSignOutAlt className="inline-block mr-2" /> Purchase
+                            </Link>
                         </li>
                     </ul>
                 </nav>
@@ -47,7 +56,6 @@ const Layout = ({ children }) => {
                     >
                         <FaBars size={24} />
                     </button>
-                    <h1 className="text-xl font-semibold text-gray-800">Inventory Management System</h1>
                     <div className="hidden lg:flex items-center space-x-4">
                         <button className="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600">
                             Profile
@@ -74,38 +82,3 @@ const Layout = ({ children }) => {
 };
 
 export default Layout;
-
-
-// import React from 'react';
-// import { Link } from 'react-router-dom';
-
-// const Layout = ({ children }) => {
-//   return (
-//     <div className="flex min-h-screen">
-//       {/* Sidebar */}
-//       <aside className="w-64 bg-gray-800 text-white p-4">
-//         <h1 className="text-xl font-bold mb-6">App Name</h1>
-//         <nav>
-//           <ul>
-//             <li className="mb-2">
-//               <Link to="/" className="hover:text-gray-300">Home</Link>
-//             </li>
-//             <li className="mb-2">
-//               <Link to="/storage" className="hover:text-gray-300">Storage</Link>
-//             </li>
-//             <li className="mb-2">
-//               <Link to="/inventory" className="hover:text-gray-300">Inventory</Link>
-//             </li>
-//           </ul>
-//         </nav>
-//       </aside>
-
-//       {/* Main Content */}
-//       <main className="flex-1 bg-gray-100 p-6">
-//         {children}
-//       </main>
-//     </div>
-//   );
-// };
-
-// export default Layout;

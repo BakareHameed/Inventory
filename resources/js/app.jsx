@@ -5,6 +5,8 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Inventory from './Inventory';
 import Home from './Home';
 import Storage from './Storage';
+import Supplier from './Supplier'
+import Purchase from './Purchase'
 import Layout from './Layout'; // Import the Layout
 
 const App = () => {
@@ -12,7 +14,7 @@ const App = () => {
     <BrowserRouter>
       <Routes>
         <Route
-          path="/"
+          path="/home"
           element={
             <Layout>
               <Home />
@@ -32,6 +34,22 @@ const App = () => {
           element={
             <Layout>
               <Inventory />
+            </Layout>
+          }
+        />
+        <Route
+          path="/supplier"
+          element={
+            <Layout>
+              <Supplier />
+            </Layout>
+          }
+        />
+        <Route
+          path="/purchase"
+          element={
+            <Layout>
+              <Purchase />
             </Layout>
           }
         />

@@ -62,9 +62,15 @@ use App\Http\Controllers\FieldSupportTicketController;
 */
 
 
-Route::get('/inventory', function () {
+// Route::get('/inventory', function () {
+//     return view('user.inventory');
+// })->name('inventory');
+
+Route::get('/inventory/{any?}', function () {
     return view('user.inventory');
-})->name('inventory');
+})->where('any', '.*')->name('inventory');
+
+
 
 Route::view('/{any}', 'user.home')->where('any', '.*'); // Catch all routes and direct them to home.blade.php
 Route::post('/api/products', [ProductController::class, 'store']);
