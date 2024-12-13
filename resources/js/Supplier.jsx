@@ -10,16 +10,37 @@ const Supplier = () => {
         socials: '',
     });
 
-    const handleAddSupplier = () => {
-        // Add the new supplier to the suppliers list
-        setSuppliers([...suppliers, { ...newSupplier, id: Date.now() }]);
-        setNewSupplier({
-            contact_name: '',
-            contact_email: '',
-            contact_phone: '',
-            address: '',
-            socials: '',
-        });
+    const handleAddSupplier = async () => {
+        try {
+            // Send a POST request to the API to add the new supplier
+            const response = await fetch('http://127.0.0.1/api/suppliers', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(newSupplier),
+            });
+
+            if (!response.ok) {
+                throw new Error('Network response was not ok');
+            }
+
+            const addedSupplier = await response.json();
+
+            // Update the suppliers list with the newly added supplier
+            setSuppliers([...suppliers, addedSupplier]);
+
+            // Reset the form fields
+            setNewSupplier({
+                contact_name: '',
+                contact_email: '',
+                contact_phone: '',
+                address: '',
+                socials: '',
+            });
+        } catch (error) {
+            console.error('Error adding supplier:', error);
+        }
     };
 
     return (
