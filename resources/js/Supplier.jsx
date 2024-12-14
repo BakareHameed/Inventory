@@ -37,6 +37,7 @@ const Supplier = () => {
                 contact_phone: '',
                 address: '',
                 socials: '',
+                tab:'',
             });
         } catch (error) {
             console.error('Error adding supplier:', error);
